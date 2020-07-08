@@ -5,6 +5,7 @@
   width: 100%;
   padding: 5px 0px;
   box-shadow: 7px 10px 15px gray;
+  z-index: 2;
 }
 
 .chat-screen {
@@ -68,10 +69,22 @@
 .chat__write:focus {
   outline: none;
   width: 80%;
-
+  animation: textAnimation 1s linear infinite;
   transform: translateY(-50px);
   border-radius: 40px;
   box-shadow: 7px 10px 15px gray;
+}
+
+@keyframes textAnimation {
+  0% {
+    box-shadow: 7px 10px 15px gray;
+  }
+  50% {
+    box-shadow: 7px 10px 50px gray;
+  }
+  100% {
+    box-shadow: 7px 10px 15px gray;
+  }
 }
 
 /*
@@ -120,10 +133,32 @@
 
 .incoming-message {
   justify-content: flex-start;
+  animation: incomingMsgAnimation 0.5s ease-in-out forwards;
+}
+@keyframes incomingMsgAnimation {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .sent-message {
   justify-content: flex-end;
+  animation: sentMsgAnimation 0.5s ease-in-out forwards;
+}
+@keyframes sentMsgAnimation {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .message .message__bubble {

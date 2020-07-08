@@ -5,6 +5,8 @@
   padding: 20px 50px;
   left: 0px;
   bottom: 0px;
+  animation: showNavbar 0.5s linear 0.5s forwards;
+  transform: translateY(100px);
 }
 
 .nav .nav__list {
@@ -28,4 +30,15 @@
   align-items: center;
   border-radius: 20px;
   font-size: 10px;
+}
+
+@keyframes showNavbar {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
 }
